@@ -54,5 +54,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 ## Infinite Loading Implementation.
-This was achieved with javascript instersection observers placed using a ref on the loading element. Once the loading component is visible, a call back function is triggered which fetches the next page of the application. 
+This was achieved with javascript instersection observers placed using a ref on the loading component. Once the loading component is visible, a call back function is triggered which fetches the next page of the github repos. 
 
