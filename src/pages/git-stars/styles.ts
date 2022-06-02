@@ -46,34 +46,43 @@ export const GitWrapper = styled.div`
       color: green;
       font-size: 1rem;
     }
+  }
 
-   
+  .finished {
+    h3 {
+      font-weight: 400;
+      font-size: 1rem;
+      background-color: rgb(0, 255, 0, 0.1);
+      color: rgb(0, 255, 0, 0.9);
+      border: 1px solid rgb(0, 255, 0, 0.9);
+      padding: 1.5rem;
+      border-radius: 0.2rem;
+    }
   }
 
   .error {
+    h3 {
+      font-weight: 400;
+      font-size: 1rem;
+      background-color: rgb(255, 0, 0, 0.2);
+      color: rgb(255, 0, 0, 0.7);
+      border: 1px solid rgb(255, 0, 0, 0.7);
+      padding: 1rem;
+      border-radius: 0.2rem;
+    }
 
-h3{
-  font-weight: 400;
-  font-size: 1rem;
-  background-color: rgb(255,0,0,0.2);
-  color: rgb(255,0,0, .7);
-  border: 1px solid rgb(255,0,0,0.2);
-  padding: 1rem;
-  border-radius: .2rem;
-}
+    button {
+      border: none;
+      outline: none;
+      padding: 1rem 2.4rem;
+      background-color: rgb(156, 16, 236);
+      color: white;
+      border-radius: 0.2rem;
+      margin-top: 2rem;
 
-button{
-  border: none;
-  outline: none;
-  padding: 1rem 2.4rem;
-  background-color: rgb(156, 16, 236);
-  color: white;
-  border-radius: .2rem;
-  margin-top: 2rem;
-
-  :hover{
-    background-color: rgb(97, 9, 148);
+      :hover {
+        background-color: rgb(97, 9, 148);
+      }
+    }
   }
-}
-}
 `;

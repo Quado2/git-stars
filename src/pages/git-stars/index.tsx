@@ -16,6 +16,7 @@ function GitStars(props: GitProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [thirtyDaysAgo, setThirtyDaysAgo] = useState("");
   const [errorLoading, setErrorLoading] = useState(false);
+  const [dataFinished, setDataFinished] = useState(false);
 
   const updatePage = useCallback(
     (entries: any) => {
@@ -35,8 +36,8 @@ function GitStars(props: GitProps) {
 
   const onRetry = useCallback(() => {
     setErrorLoading(false);
-    setCurrentPage(currentPage => currentPage+1);
-  },[])
+    setCurrentPage((currentPage) => currentPage + 1);
+  }, []);
 
   const options = useMemo(
     () => ({
@@ -63,16 +64,18 @@ function GitStars(props: GitProps) {
     setThirtyDaysAgo(date);
 
     async function getData() {
-      const { error, data, errorMessage }: GithubResponse = await getStaredRepo(
+      const { error, data, finished }: GithubResponse = await getStaredRepo(
         date,
         currentPage
       );
-      console.log(error, errorMessage);
+
       if (error) {
         setErrorLoading(true);
+      } else if (finished) {
+        setDataFinished(true);
       } else {
         if (typeof data === "object") {
-          setRepos(currentRepos => [...currentRepos, ...data]);
+          setRepos((currentRepos) => [...currentRepos, ...data]);
         }
       }
     }
@@ -86,7 +89,6 @@ function GitStars(props: GitProps) {
         <h3>
           {` A list of most starred github repositories created in the last 30 days (from
           ${thirtyDaysAgo} to date)`}
-         
         </h3>
       </div>
 
@@ -103,8 +105,12 @@ function GitStars(props: GitProps) {
           />
         ))}
 
-      {errorLoading ? (
-        <div className="item error" >
+      {dataFinished ? (
+        <div className="item finished">
+          <h3>Congratulations !! You have viewed all the top 1000 github repositories in the last 30 days.</h3>
+        </div>
+      ) : errorLoading ? (
+        <div className="item error">
           <h3>An unexpected error occured while loading more data</h3>
           <button onClick={onRetry}>Retry loading</button>
         </div>
