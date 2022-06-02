@@ -102,6 +102,7 @@ function GitStars(props: GitProps) {
             stars={repo.stargazers_count}
             issues={repo.open_issues}
             createdAt={repo.created_at}
+            projectUrl = {repo.html_url}
           />
         ))}
 
