@@ -24,7 +24,6 @@ function GitStars(props: GitProps) {
       if (entry.isIntersecting) {
         if (!loading) {
           setCurrentPage((currentPage) => currentPage + 1);
-          console.log({ currentPage });
           setLoading(true);
         }
       } else {

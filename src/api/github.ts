@@ -7,7 +7,6 @@ export async function getStaredRepo(
   date: string,
   pageNumber: number
 ): Promise<GithubResponse> {
-  let hasError = false;
   const URL = `https://api.github.com/search/repositories?q=created:>${date}&sort=stars&order=desc&page=${pageNumber}`;
   try {
     const repoResponse = await axios.get(URL);
