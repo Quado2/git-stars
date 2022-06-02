@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Steps on running the project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -44,3 +44,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+## Libraries and dependencies used
+1. React-spinners: Used as the loading spinner for when data is being fetched from the api
+2. Styled-components: This is used for styling.
+3. axios: Used for making api calls
+
+
+## Infinite Loading Implementation.
+This was achieved with javascript instersection observers placed using a ref on the loading element. Once the loading component is visible, a call back function is triggered which fetches the next page of the application. 
+
