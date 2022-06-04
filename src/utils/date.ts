@@ -11,5 +11,6 @@ export function getLast30Days():string{
 }
 
 export function getDaysAgo(date: string){
-  return Math.floor((new Date().getTime() - new Date(date).getTime())/(24*60*60*100));
+  console.log(date);
+  return Math.floor((new Date().getTime() - new Date(date).getTime())/(24*60*60*1000));
 }
