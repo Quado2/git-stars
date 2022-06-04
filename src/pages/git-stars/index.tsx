@@ -94,7 +94,7 @@ function GitStars(props: GitProps) {
       {repos.length > 1 &&
         repos.map((repo, i) => (
           <GitProfile
-            key={repo.id}
+            key={repo.id+i}
             avatarUrl={repo.owner.avatar_url}
             repoName={repo.name}
             repoDescription={repo.description}
