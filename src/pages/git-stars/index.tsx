@@ -22,6 +22,7 @@ function GitStars(props: GitProps) {
 
   const updatePage = useCallback(
     (entries: any) => {
+      
       const [entry] = entries;
       if (entry.isIntersecting) {
         if (!loading) {
