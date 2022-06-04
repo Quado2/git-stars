@@ -17,6 +17,8 @@ function GitStars(props: GitProps) {
   const [thirtyDaysAgo, setThirtyDaysAgo] = useState("");
   const [errorLoading, setErrorLoading] = useState(false);
   const [dataFinished, setDataFinished] = useState(false);
+  const [lastErrorTime, setLastErrorTime] = useState(0)
+
 
   const updatePage = useCallback(
     (entries: any) => {
@@ -30,12 +32,13 @@ function GitStars(props: GitProps) {
         setLoading(false);
       }
     },
-    [loading]
+    [loading,lastErrorTime]
   );
 
   const onRetry = useCallback(() => {
     setErrorLoading(false);
     setCurrentPage((currentPage) => currentPage + 1);
+    setLastErrorTime(new Date().getTime());
   }, []);
 
   const options = useMemo(
@@ -57,7 +60,8 @@ function GitStars(props: GitProps) {
     };
   }, [options, loadingRef, updatePage]);
 
-  //for fetching data on load
+  
+  //for fetching data on load and when the page changes
   useEffect(() => {
     const date = getLast30Days();
     setThirtyDaysAgo(date);
